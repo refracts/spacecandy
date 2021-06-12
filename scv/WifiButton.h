@@ -11,5 +11,4 @@
 @end
 
 SBWiFiManager *wifiman;
-
 UITapGestureRecognizer *theTapRecognizer;

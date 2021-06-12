@@ -9,6 +9,15 @@
         taper.numberOfTapsRequired = 1;
         [self addGestureRecognizer: taper];
         [self updateColor];
+
+        for (UIImageView *vtr in self.subviews)
+        {
+            [vtr removeFromSuperview];
+        }
+        UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview: wifiImage];
+        [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/planeoff.png"]];
+        
     }
 
     -(void)handleTap:(UITapGestureRecognizer *)tapRecognizer
@@ -28,11 +37,25 @@
 
     -(void)updateColor
     {
-        if (airman.isInAirplaneMode)
+        if (airman.inAirplaneMode)
         {
-            self.backgroundColor = UIColor.greenColor;
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: wifiImage];
+
+            [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/planeoff.png"]];
         } else {
-            self.backgroundColor = UIColor.redColor;
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: wifiImage];
+
+            [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/planeon.png"]];
         }
     }
 @end

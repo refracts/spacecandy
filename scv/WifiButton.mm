@@ -4,10 +4,10 @@
     -(void)setup
     {   
         wifiman = [NSClassFromString(@"SBWiFiManager") sharedInstance];
-
         theTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         theTapRecognizer.numberOfTapsRequired = 1;
         [self addGestureRecognizer: theTapRecognizer];
+
         [self updateColor];
     }
 
@@ -30,9 +30,24 @@
     {
         if (wifiman.wiFiEnabled)
         {
-            self.backgroundColor = UIColor.greenColor;
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: wifiImage];
+
+            [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/wifion.png"]];
         } else {
-            self.backgroundColor = UIColor.redColor;
+
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: wifiImage];
+
+            [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/wifioff.png"]];
         }
     }
 @end

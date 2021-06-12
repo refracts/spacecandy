@@ -13,5 +13,4 @@
 @end
 
 BluetoothManager *btoothManager;
-
 UITapGestureRecognizer *tap;

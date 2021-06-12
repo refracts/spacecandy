@@ -5,6 +5,9 @@
 @end
 
 @interface SBAirplaneModeController : NSObject
+
+    @property (nonatomic, assign, readwrite, getter=isInAirplaneMode) BOOL inAirplaneMode;
+
     +(id)sharedInstance;
     -(BOOL)isInAirplaneMode;
     -(void)setInAirplaneMode:(BOOL)arg1;
