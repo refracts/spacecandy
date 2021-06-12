@@ -3,7 +3,7 @@
 @implementation AirMan
     -(void)setup
     {   
-        airman = [NSClassFromString(@"SBAirplaneModeController ") sharedInstance];
+        airman = [NSClassFromString(@"SBAirplaneModeController") sharedInstance];
 
         taper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         taper.numberOfTapsRequired = 1;
