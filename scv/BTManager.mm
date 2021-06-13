@@ -30,11 +30,27 @@
 
     -(void)updateColor
     {
-        if (btoothManager.enabled)
-        {
-            self.backgroundColor = UIColor.greenColor;
+        if ([btoothManager available])
+        {   
+
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *btimg = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: btimg];
+
+            [btimg setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/blueon.png"]];
         } else {
-            self.backgroundColor = UIColor.redColor;
+
+            for (UIImageView *vtr in self.subviews)
+            {
+                [vtr removeFromSuperview];
+            }
+            UIImageView *btimg = [[UIImageView alloc] initWithFrame:self.bounds];
+            [self addSubview: btimg];
+
+            [btimg setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/blueoff.png"]];
         }
     }
 @end
