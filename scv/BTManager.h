@@ -5,10 +5,9 @@
 @end
 
 @interface BluetoothManager
-    -(id)sharedInstance;
+    +(id)sharedInstance;
     -(void)setEnabled:(BOOL)enabled;
     -(bool)enabled;
-    -(bool)available;
     -(void)setPowered:(BOOL)powered;
     -(bool)powered;
 @end

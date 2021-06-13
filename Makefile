@@ -8,7 +8,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = Spacecandy
 
-Spacecandy_FILES = Tweak.xm ./scv/BTManager.mm ./scv/WifiButton.mm ./scv/RotLock.mm ./scv/AirMan.mm ./scv/SpaceBackground.m
+Spacecandy_FILES = Tweak.xm ./scv/BTManager.mm ./scv/WifiButton.mm ./scv/RotLock.mm ./scv/AirMan.mm ./scv/FlashMan.mm ./scv/TapeRecorder.mm ./scv/SpaceBackground.m
 Spacecandy_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk

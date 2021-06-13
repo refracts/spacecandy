@@ -30,26 +30,19 @@
 
     -(void)updateColor
     {
-        if ([btoothManager available])
+
+        for (UIImageView *vtr in self.subviews)
+        {
+            [vtr removeFromSuperview];
+        }
+        UIImageView *btimg = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview: btimg];
+
+        if (btoothManager.enabled)
         {   
-
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *btimg = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: btimg];
-
             [btimg setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/blueon.png"]];
         } else {
-
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *btimg = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: btimg];
-
+            
             [btimg setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/blueoff.png"]];
         }
     }

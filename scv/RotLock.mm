@@ -28,11 +28,18 @@
 
     -(void)updateColor
     {
-        if ([orientationManager isUserLocked])
+        for (UIImageView *vtr in self.subviews)
         {
-            self.backgroundColor = UIColor.greenColor;
+            [vtr removeFromSuperview];
+        }
+        UIImageView *rotImage = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview: rotImage];
+
+        if (orientationManager.isUserLocked)
+        {
+            [rotImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/lockon.png"]];
         } else {
-            self.backgroundColor = UIColor.redColor;
+            [rotImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/lockoff.png"]];
         }
     }
 @end

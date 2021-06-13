@@ -37,24 +37,18 @@
 
     -(void)updateColor
     {
+
+        for (UIImageView *vtr in self.subviews)
+        {
+            [vtr removeFromSuperview];
+        }
+        UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview: wifiImage];
+
         if (airman.inAirplaneMode)
         {
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: wifiImage];
-
             [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/planeoff.png"]];
         } else {
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: wifiImage];
-
             [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/planeon.png"]];
         }
     }

@@ -3,6 +3,8 @@
 #import "WifiButton.h"
 #import "AirMan.h"
 #import "RotLock.h"
+#import "FlashMan.h"
+#import "TapeRecorder.h"
 
 @implementation SpaceBackground
 
@@ -26,7 +28,7 @@
     [self addSubview:vfv];
     
     [vfv.widthAnchor constraintEqualToConstant:self.bounds.size.width].active = YES;
-    [vfv.heightAnchor constraintEqualToConstant:self.bounds.size.height/2.30].active = YES;
+    [vfv.heightAnchor constraintEqualToConstant:self.bounds.size.height/2].active = YES;
     [vfv.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
     [vfv.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
 
@@ -50,6 +52,14 @@
     AirMan *am = [[AirMan alloc] initWithFrame: CGRectMake(100,100,100,100)];
     [vfv.contentView addSubview:am];
     [am setup];
+
+    FlashMan *fm = [[FlashMan alloc] initWithFrame: CGRectMake(0,200,100,100)];
+    [vfv.contentView addSubview:fm];
+    [fm setup];
+
+    TapeRecorder *tr = [[TapeRecorder alloc] initWithFrame: CGRectMake(100,200,100,100)];
+    [vfv.contentView addSubview:tr];
+    [tr setup];
 }
 
 @end

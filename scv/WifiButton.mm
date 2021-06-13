@@ -28,25 +28,17 @@
 
     -(void)updateColor
     {
+        for (UIImageView *vtr in self.subviews)
+        {
+            [vtr removeFromSuperview];
+        }
+        UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview: wifiImage];
+
         if (wifiman.wiFiEnabled)
         {
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: wifiImage];
-
             [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/wifion.png"]];
         } else {
-
-            for (UIImageView *vtr in self.subviews)
-            {
-                [vtr removeFromSuperview];
-            }
-            UIImageView *wifiImage = [[UIImageView alloc] initWithFrame:self.bounds];
-            [self addSubview: wifiImage];
-
             [wifiImage setImage: [UIImage imageWithContentsOfFile:@"/Library/Application Support/SpaceCandy/wifioff.png"]];
         }
     }
